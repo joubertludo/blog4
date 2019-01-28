@@ -7,6 +7,8 @@ require('inc/header.php');
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
 		case 'article':
+
+		$post=one_post($bdd,$_GET["id"]);
 			require 'views/article.php';
 			break;
 		case 'editorform':
