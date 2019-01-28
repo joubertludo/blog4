@@ -10,8 +10,8 @@
         <div class=' flex-column'>
 
           <h2>".utf8_encode($datas['title'])."</h2>
-          <h5>$datas[firstname] - $datas[updated_date]</h5>
-          <p>$datas[content]</p>
+          <h5>$datas[firstname] -".date("d-m-Y",strtotime($datas['updated_date']))."</h5>
+          <p>".substr($datas['content'],0,200)."...</p>
           <a href='index.php?page=article&id=$CURRENT_PAGE'><p>Lire la suite</p></a>
 
            
