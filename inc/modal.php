@@ -9,25 +9,35 @@
         </button>
       </div>
       <div class="modal-body">
-        <form name="connectForm" onsubmit="validateForm()" method="get"  class="form-inline">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="userName">Nom d'utilisateur</label>
-              <input value="zreffee" name="usr" type="text" class="form-control" id="inputEmail4" placeholder="Georges">
+        <?php 
+        if(isset($_SESSION['id']))
+        {
+          echo"Bonjour, ".$_SESSION['firstname'];
+
+        }else {
+          echo" <form name='connectForm' onsubmit='validateForm()' method='POST' action='index.php'  class='form-inline'>
+          <div class='form-row'>
+            <div class='form-group col-md-6'>
+              <label for='userName'>Nom d'utilisateur</label>
+              <input value='zreffee' name='usr' type='text' class='form-control' id='inputEmail4' placeholder='Georges'>
             </div>
-            <div class="form-group col-md-6">
-              <label for="userPass">Mot de passe</label>
-              <input name="mdp" type="password" class="form-control" id="inputPassword4" placeholder="Password">
+            <div class='form-group col-md-6'>
+              <label for='userPass'>Mot de passe</label>
+              <input name='mdp' type='password' class='form-control' id='inputPassword4' placeholder='Password'>
             </div>
 
           </div>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="submit" class="btn btn-primary">Se connecter</button>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-secondary' data-dismiss='modal'>Fermer</button>
+        <button type='submit' class='btn btn-primary'>Se connecter</button>
       </div>
-    </form>
+    </form>";
+        }
+
+         ?>
+        
     </div>
   </div>
 </div>

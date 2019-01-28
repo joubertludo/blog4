@@ -1,9 +1,32 @@
 <?php
+session_start();
+
+
 require('model/connection.php');
 require('model/functions.php');
 require('inc/head.php');
 require('inc/nav.php');
 require('inc/header.php');
+if (isset($_POST['usr']) && isset($_POST['mdp']) )
+
+{
+ $post=connect_user($bdd,$_POST['usr'], $_POST['mdp']);
+	if ($post){echo'ok';
+$_SESSION['id']=$post['id'];
+$_SESSION['usr']=$post['email'];
+$_SESSION['firstname']=$post['firstname'];
+$_SESSION['lastname']=$post['lastname'];
+
+
+}
+
+	else{echo'mot de passe et identifiant incorrect';}
+
+
+
+	// echo $_POST['usr'].' '.$_POST['mdp'];
+}
+// echo" merci de remplir les champs indiqués";
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
 		case 'article':
@@ -12,7 +35,7 @@ if(isset($_GET['page'])){
 			require 'views/article.php';
 			break;
 		case 'editorform':
-			
+			$edit=edit_post($bdd,$_GET["id"]);
 			require 'views/editorform.php';
 			break;
 			case 'userform':

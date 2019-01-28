@@ -6,12 +6,24 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link hand"  data-toggle="modal" data-target="#exampleModalCenter">Se connecter</a>
-                </li>
-                <li class="nav-item">
-                    <a id="deco" class="nav-link" href="">Se déconnecter</a>
-                </li>
+               
+                    <?php
+                    if(isset($_SESSION['id']))
+                    {
+                echo" <li class='nav-item'>
+                Bonjour, ".$_SESSION['firstname']."
+                    <a class='nav-link' href=''>Se déconnecter</a>
+                    </li>";
+                    
+                    }else{
+                        echo"<li class='nav-item'>
+                    <a class='nav-link hand'  data-toggle='modal' data-target='#exampleModalCenter'>Se connecter</a>
+                </li>";
+      
+                    }
+                    ?>
+
+               
                 <!-- <li class="nav-item">
                     <a id="" class="nav-link" href="index.php?page=article">article</a>
                 </li>
