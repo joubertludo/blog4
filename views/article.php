@@ -6,7 +6,7 @@
     <?php
     if(isset($_SESSION['id'])){
       echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
-<a href='index.php?action=delete' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
+<a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
 
     }
 

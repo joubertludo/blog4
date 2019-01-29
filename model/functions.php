@@ -2,7 +2,8 @@
 $articles=json_decode($json);
 
 if (isset($_GET['action']) && $_GET['action']=='delete') {
-   echo("
+    $delete=delete_post($bdd);
+    echo("
    <script>
    alert('Vous avez supprimé ce post')
    </script>");
@@ -43,6 +44,12 @@ function connect_user($bdd,$usr,$mdp){
 $post=$reponse->fetch();
     $reponse->closeCursor();
     return $post;
+}
+function delete_post($bdd){
+    $id=$_GET['id'];
+    $reponse=$bdd->prepare('DELETE from posts where id=?');
+    $reponse->execute(array($id));
+   
 }
 ?>
 
