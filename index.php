@@ -5,6 +5,14 @@ require('model/functions.php');
 require('inc/head.php');
 require('inc/nav.php');
 require('inc/header.php');
+
+if (isset($_GET['action']) && $_GET['action']=='delete') {
+    $delete=delete_post($bdd,$_GET['id']);
+    echo("
+   <script>
+   alert('Vous avez supprimé ce post')
+   </script>");
+}
 if (isset($_POST['usr']) && isset($_POST['mdp']) )
 
 {

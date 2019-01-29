@@ -1,13 +1,4 @@
-<?php $json=file_get_contents('data/articles.json');
-$articles=json_decode($json);
-
-if (isset($_GET['action']) && $_GET['action']=='delete') {
-    $delete=delete_post($bdd);
-    echo("
-   <script>
-   alert('Vous avez supprimé ce post')
-   </script>");
-}
+<?php
 
 function search_all_posts($bdd){
     $reponse = $bdd->prepare('SELECT P.id,title,A.firstname,P.updated_date,P.content,P.file from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id');
@@ -45,8 +36,7 @@ function connect_user($bdd,$usr,$mdp){
     $reponse->closeCursor();
     return $post;
 }
-function delete_post($bdd){
-    $id=$_GET['id'];
+function delete_post($bdd,$id){
     $reponse=$bdd->prepare('DELETE from posts where id=?');
     $reponse->execute(array($id));
    
