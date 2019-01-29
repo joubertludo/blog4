@@ -52,7 +52,13 @@ $content=$_GET['formcontent'];
 $create=new_post($bdd,$title,$content);
 }
 
-
+if(isset($_GET['formtitremodif']) && isset($_GET['formcontentmodif'])){
+	$title=$_GET['formtitremodif'];
+$content=$_GET['formcontentmodif'];
+$id=$_GET['id'];
+// $file=$_GET['formfile'];
+$modif=modif_post($bdd,$title,$content,$id);
+}
 
 
 if(isset($_GET['page'])){
@@ -63,6 +69,8 @@ if(isset($_GET['page'])){
 			require 'views/article.php';
 			break;
 		case 'editorform':
+			$list_categories=list_categories($bdd);
+			$list_authors=list_authors($bdd);
 			$id=$_GET["id"];
 			$edit=edit_post($bdd,$id);
 			require 'views/editorform.php';

@@ -45,6 +45,10 @@ function new_post($bdd,$title,$content){
     $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`) VALUES (?,?,?)');
     $reponse->execute(array($title,$content,''));
 }
+function modif_post($bdd,$title,$content,$id){
+    $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=? where posts.id=?');
+    $reponse->execute(array($title,$content,$id));
+}
 function list_categories($bdd){
   $reponse=$bdd->prepare('SELECT * from categories');
   $reponse->execute();
