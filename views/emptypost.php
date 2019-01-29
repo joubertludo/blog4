@@ -25,6 +25,7 @@
             echo "<option>".$author['firstname']."</option>";
           }
           ?>
+          
         </select>
       </div>
       <div class="form-group col-md-4">
