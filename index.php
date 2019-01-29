@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 require('model/connection.php');
 require('model/functions.php');
 require('inc/head.php');
@@ -36,6 +34,19 @@ if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
 
 
 }
+
+
+
+if(isset($_GET['formtitre']) && isset($_GET['formcontent'])){
+	$title=$_GET['formtitre'];
+$content=$_GET['formcontent'];
+// $file=$_GET['formfile'];
+$create=new_post($bdd,$title,$content);
+}
+
+
+
+
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
 		case 'article':
@@ -44,12 +55,15 @@ if(isset($_GET['page'])){
 			require 'views/article.php';
 			break;
 		case 'editorform':
-			$edit=edit_post($bdd,$_GET["id"]);
+			$id=$_GET["id"];
+			$edit=edit_post($bdd,$id);
 			require 'views/editorform.php';
 			break;
-			case 'userform':
-			
+		case 'userform':
 			require 'views/userform.php';
+			break;
+		case 'emptypost':
+		require 'views/emptypost.php';
 			break;
 		default:
 			$all_posts=search_all_posts($bdd);

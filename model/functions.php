@@ -41,7 +41,7 @@ $post=$reponse->fetch();
 function connect_user($bdd,$usr,$mdp){
   $reponse=$bdd->prepare('SELECT A.id,A.firstname,A.lastname,A.email from authors as A where A.email=? and A.password=?');
    $reponse->execute(array($usr,MD5($mdp)));
-$post=$reponse->fetch();
+    $post=$reponse->fetch();
     $reponse->closeCursor();
     return $post;
 }
@@ -51,5 +51,10 @@ function delete_post($bdd){
     $reponse->execute(array($id));
    
 }
+function new_post($bdd,$title,$content){
+    $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`) VALUES (?,?,?)');
+    $reponse->execute(array($title,$content,''));
+}
+
 ?>
 

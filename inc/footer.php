@@ -3,7 +3,7 @@
 			
   <div class="card-footer text-muted text-center bg-secondary ">
  <a class="text-white" href=""> Accueil</a>
-   <p class="text-white"> - © -<?php print date('d/m/y')?> - Tous droits réservés.-  </p>
+   <p class="text-white">© <?php print date('d/m/y')?> - Tous droits réservés.</p>
    
 </div>
 </footer>

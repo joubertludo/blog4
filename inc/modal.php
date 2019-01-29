@@ -19,7 +19,7 @@
           <div class='form-row'>
             <div class='form-group col-md-6'>
               <label for='userName'>Nom d'utilisateur</label>
-              <input value='zreffee' name='usr' type='text' class='form-control' id='inputEmail4' placeholder='Georges'>
+              <input value='az@de.fr' name='usr' type='text' class='form-control' id='inputEmail4' placeholder='Georges'>
             </div>
             <div class='form-group col-md-6'>
               <label for='userPass'>Mot de passe</label>

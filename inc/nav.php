@@ -14,7 +14,9 @@
                 Bonjour, ".$_SESSION['firstname']."
                     <a class='nav-link' href='index.php?stopsession=yes'>Se déconnecter</a>
                     </li>";
-                    
+                    echo" <li class='nav-item'>
+                        <a class='nav-link' href='index.php?page=emptypost'>Ajouter un article</a>
+                        </li>";
                     }else{
                         echo"<li class='nav-item'>
                     <a class='nav-link hand'  data-toggle='modal' data-target='#exampleModalCenter'>Se connecter</a>

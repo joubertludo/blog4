@@ -1,6 +1,3 @@
-<?php
-$datePost = gmdate("d/m/y", $articles[$_GET['id']]->date);
-?>
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
   <form method="post" action="model/editarticle.php">
