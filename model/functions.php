@@ -1,7 +1,7 @@
 <?php
 
 function search_all_posts($bdd){
-    $reponse = $bdd->prepare('SELECT P.id,title,A.firstname,P.updated_date,P.content,P.file from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id');
+    $reponse = $bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id');
     $reponse->execute();
     $list_post = array();
     while ($post = $reponse->fetch()) {
@@ -42,12 +42,12 @@ function delete_post($bdd,$id){
    
 }
 function new_post($bdd,$title,$content){
-    $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`) VALUES (?,?,?)');
-    $reponse->execute(array($title,$content,''));
+    $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`,`id_aut`,`id_cat`) VALUES (?,?,?,?,?)');
+    $reponse->execute(array($title,$content,'',$_GET['nameaut'],$_GET['namecat']));
 }
 function modif_post($bdd,$title,$content,$id){
-    $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=? where posts.id=?');
-    $reponse->execute(array($title,$content,$id));
+    $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?, id_aut=?, id_cat=? where posts.id=?');
+    $reponse->execute(array($title,$content,$_GET['nameaut'],$_GET['namecat'],$id));
 }
 function list_categories($bdd){
   $reponse=$bdd->prepare('SELECT * from categories');
@@ -61,7 +61,7 @@ while ($categorie = $reponse->fetch()) {
     return $list_categories;
 }
 function list_authors($bdd){
-  $reponse=$bdd->prepare('SELECT firstname from authors');
+  $reponse=$bdd->prepare('SELECT id,firstname from authors');
   $reponse->execute();
   $list_authors=array();
 while ($author = $reponse->fetch()) {

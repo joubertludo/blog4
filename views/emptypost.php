@@ -18,11 +18,11 @@
     <div class="form-row">
      <div class="form-group col-md-4">
         <label for="inputState">Auteurs</label>
-        <select id="inputState" class="form-control">
+        <select name="nameaut"  id="inputState" class="form-control">
           <option selected></option>
           <?php
           foreach($list_authors as $author){
-            echo "<option>".$author['firstname']."</option>";
+            echo "<option value=".$author['id'].">".$author['firstname']."</option>";
           }
           ?>
           
@@ -30,19 +30,19 @@
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
-        <select id="inputState" class="form-control">
+        <select name="namecat"  id="inputState" class="form-control">
           <option selected></option>
           <?php
           var_dump($list_categories);
           foreach($list_categories as $categorie){
-            echo "<option>".$categorie['name']."</option>";
+            echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
           }
           ?>
         </select>
       </div>
       <div class="form-group col-md-2">
         <label for="inputZip">Date</label>
-        <input type="text" class="form-control" id="inputZip" value="">
+        <input type="date" class="form-control" id="inputZip" value="<?php $date = date('m/d/Y'); echo($date);?>">
       </div>
     </div>
     <button type="submit" class="btn btn-warning">Envoyer</button>

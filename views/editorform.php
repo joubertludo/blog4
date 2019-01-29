@@ -2,7 +2,7 @@
   <h2>Editer votre article</h2>
   <form method="get" action="index.php">
     <div class="form-group">
-      <input name="id" value="<?php echo($_GET['id']) ?>">
+      <input name="id" type="hidden" value="<?php echo($_GET['id']) ?>">
       <label for="sfrvsvdv">Titre</label>
       <input name="formtitremodif" type="text" class="form-control" id="formGroupExampleInput" placeholder="Exemple" value="<?php echo($edit['title'])?>" >
     </div>
@@ -19,30 +19,35 @@
     <div class="form-row">
     <div class="form-group col-md-4">
         <label for="inputState">Auteurs</label>
-        <select id="inputState" class="form-control">
+        <select name="nameaut" id="inputState" class="form-control">
         <option selected><?php echo($edit['firstname'])?></option>
           <?php
           foreach($list_authors as $author){
-            echo "<option>".$author['firstname']."</option>";
+            if($edit['firstname']!=$author['firstname']){
+              echo "<option value=".$author['id'].">".$author['firstname']."</option>";
+            }
           }
           ?>
         </select>
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
-        <select id="inputState" class="form-control">
+        <select name="namecat" id="inputState" class="form-control">
         <option selected><?php echo($edit['name'])?></option>
           <?php
           var_dump($list_categories);
-          foreach($list_categories as $categorie){
-            echo "<option>".$categorie['name']."</option>";
+          foreach($list_categories as $categorie){          
+            
+            if($edit['name']!=$categorie['name']){
+              echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
+            }
           }
           ?>
         </select>
       </div>
       <div class="form-group col-md-2">
         <label for="inputZip">Date</label>
-        <input type="text" class="form-control" id="inputZip" value="<?php  echo($edit['updated_date'])?>" >
+        <input type="date" class="form-control" id="inputZip" value="<?php  echo($edit['updated_date'])?>" >
       </div>
     </div>
     <button type="submit" class="btn btn-warning">Envoyer</button>
