@@ -16,18 +16,27 @@
   </div>
 </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">Auteur</label>
-        <input type="text" class="form-control" id="inputCity" value="" >
+     <div class="form-group col-md-4">
+        <label for="inputState">Auteurs</label>
+        <select id="inputState" class="form-control">
+          <option selected></option>
+          <?php
+          foreach($list_authors as $author){
+            echo "<option>".$author['firstname']."</option>";
+          }
+          ?>
+        </select>
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select id="inputState" class="form-control">
           <option selected></option>
-          <option>Rock</option>
-          <option>Funk</option>
-          <option>Classique</option>
-          <option>Jazz</option>
+          <?php
+          var_dump($list_categories);
+          foreach($list_categories as $categorie){
+            echo "<option>".$categorie['name']."</option>";
+          }
+          ?>
         </select>
       </div>
       <div class="form-group col-md-2">

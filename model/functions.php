@@ -45,6 +45,27 @@ function new_post($bdd,$title,$content){
     $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`) VALUES (?,?,?)');
     $reponse->execute(array($title,$content,''));
 }
-
+function list_categories($bdd){
+  $reponse=$bdd->prepare('SELECT * from categories');
+  $reponse->execute();
+  $list_categories=array();
+while ($categorie = $reponse->fetch()) {
+     
+        $list_categories[] = $categorie;
+    }
+    $reponse->closeCursor();
+    return $list_categories;
+}
+function list_authors($bdd){
+  $reponse=$bdd->prepare('SELECT firstname from authors');
+  $reponse->execute();
+  $list_authors=array();
+while ($author = $reponse->fetch()) {
+     
+        $list_authors[] = $author;
+    }
+    $reponse->closeCursor();
+    return $list_authors;
+}
 ?>
 

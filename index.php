@@ -71,6 +71,8 @@ if(isset($_GET['page'])){
 			require 'views/userform.php';
 			break;
 		case 'emptypost':
+		$list_categories=list_categories($bdd);
+		$list_authors=list_authors($bdd);
 		require 'views/emptypost.php';
 			break;
 		default:
