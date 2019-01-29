@@ -27,6 +27,15 @@ $_SESSION['lastname']=$post['lastname'];
 	// echo $_POST['usr'].' '.$_POST['mdp'];
 }
 // echo" merci de remplir les champs indiqués";
+if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
+	unset($_SESSION['id']);
+	unset($_SESSION['usr']);
+	unset($_SESSION['firstname']);
+	unset($_SESSION['lastname']);
+	session_destroy();
+
+
+}
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
 		case 'article':

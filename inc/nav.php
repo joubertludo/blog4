@@ -12,7 +12,7 @@
                     {
                 echo" <li class='nav-item'>
                 Bonjour, ".$_SESSION['firstname']."
-                    <a class='nav-link' href=''>Se déconnecter</a>
+                    <a class='nav-link' href='index.php?stopsession=yes'>Se déconnecter</a>
                     </li>";
                     
                     }else{
