@@ -22,7 +22,7 @@ $_SESSION['id']=$post['id'];
 $_SESSION['usr']=$post['email'];
 $_SESSION['firstname']=$post['firstname'];
 $_SESSION['lastname']=$post['lastname'];
-
+header('Location: index.php');
 
 }
 
@@ -39,7 +39,7 @@ if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
 	unset($_SESSION['firstname']);
 	unset($_SESSION['lastname']);
 	session_destroy();
-
+	header('Location: index.php');
 
 }
 
