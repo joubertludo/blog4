@@ -20,6 +20,7 @@
         <label for="inputCity">Auteur</label>
         <input type="text" class="form-control" id="inputCity" value="<?php echo($edit['firstname'])?>" >
       </div>
+      
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select id="inputState" class="form-control">
