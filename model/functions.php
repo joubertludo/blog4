@@ -41,9 +41,12 @@ function delete_post($bdd,$id){
     $reponse->execute(array($id));
    
 }
-function new_post($bdd,$title,$content){
+function new_post($bdd,$title,$content,$file){
+    $new_name=md5(basename($file['name']. time()));
+    $image_folder = basename($new_name);
+    move_uploaded_file($file['tmp_name'], 'img/repimg/'.$image_folder);
     $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`,`id_aut`,`id_cat`) VALUES (?,?,?,?,?)');
-    $reponse->execute(array(utf8_decode($title),utf8_decode($content),'$_FILES',$_GET['nameaut'],$_GET['namecat']));
+    $reponse->execute(array(utf8_decode($title),utf8_decode($content),$image_folder,$_POST['nameaut'],$_POST['namecat']));
 }
 function modif_post($bdd,$title,$content,$id){
     $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?, id_aut=?, id_cat=? where posts.id=?');

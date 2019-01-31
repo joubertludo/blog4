@@ -45,11 +45,11 @@ if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
 
 
 
-if(isset($_GET['formtitre']) && isset($_GET['formcontent'])){
-	$title=$_GET['formtitre'];
-$content=$_GET['formcontent'];
-// $file=$_FILES['formfile'];
-$create=new_post($bdd,$title,$content);
+if(isset($_POST['formtitre']) && isset($_POST['formcontent'])){
+	$title=$_POST['formtitre'];
+$content=$_POST['formcontent'];
+$file=$_FILES['uploadfile'];
+$create=new_post($bdd,$title,$content,$file);
 }
 
 if(isset($_GET['formtitremodif']) && isset($_GET['formcontentmodif'])){

@@ -17,7 +17,7 @@
            
         </div>
         </div>
-        <img src='https://picsum.photos/500/500".$datas['file']."' class='col-md-5 img-fluid'>
+        <img src='img/repimg/".$datas['file']."' class='col-md-5 img-fluid'>
       </div>";
   } ?>
 
