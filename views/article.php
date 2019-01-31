@@ -21,7 +21,7 @@
     	<h5><?php echo" ".$post['firstname']?></h5>
       <h5><?php  
      
-      echo' -'.$post['updated_date'];
+      echo' -'.date("d-m-Y",strtotime($post['updated_date']));
       ?></h5>
       <h5><?php echo' -'.$post['name']?></h5>
     </div>
