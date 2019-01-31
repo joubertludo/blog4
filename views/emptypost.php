@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION{'id'})) {
+if (isset($_SESSION['id'])) {
 
 ?>
 
@@ -21,18 +21,23 @@ if (isset($_SESSION{'id'})) {
   </div>
 </div>
     <div class="form-row">
-     <div class="form-group col-md-4">
-        <label for="inputState">Auteurs</label>
-        <select name="nameaut"  id="inputState" class="form-control">
-          <option selected></option>
+      <?php
+      if ($_SESSION['level']==1){
+        echo"  <div class='form-group col-md-4'>
+        <label for='inputState'>Auteurs</label>
+        <select name='nameaut'  id='inputState' class='form-control'>
+          <option selected></option>"?>
           <?php
           foreach($list_authors as $author){
-            echo "<option value=".$author['id'].">".$author['firstname']."</option>";
+            echo '<option value='.$author['id'].'>'.$author['firstname'].'</option>';
           }
-          ?>
-          
-        </select>
-      </div>
+          ?> <?php echo "</select> </div>";
+      }else{
+        echo'<input name="nameaut" type="hidden" value='.$_SESSION['id'].'>';
+      }
+      ?>
+   
+     
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select name="namecat"  id="inputState" class="form-control">

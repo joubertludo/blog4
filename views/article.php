@@ -4,10 +4,15 @@
 	<h2 class="text-white"><?php echo ($post['title']) ?></h2> 
 	<div>
     <?php
-    if(isset($_SESSION['id'])){
+    if(isset($_SESSION['id']) && $_SESSION['level']==1){
       echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
 <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
 
+    }
+
+    if(isset($_SESSION['id']) && $_SESSION['firstname']==$_GET['auteur']){
+      echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
+<a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
     }
 
     ?>
@@ -29,6 +34,6 @@
  
     </div>
     </div>
-    <img style="height:400px" src=<?php echo"https://picsum.photos/500/500".$post['file']?> class="col-md-5 img-fluid" alt="...">
+    <img style="height:400px" src='img/repimg/<?php echo($post['file'])?>' class="col-md-5 img-fluid" alt="...">
   </div>
 </section>

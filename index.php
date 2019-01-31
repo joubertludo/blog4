@@ -22,6 +22,7 @@ $_SESSION['id']=$post['id'];
 $_SESSION['usr']=$post['email'];
 $_SESSION['firstname']=$post['firstname'];
 $_SESSION['lastname']=$post['lastname'];
+$_SESSION['level']=$post['level'];
 header('Location: index.php');
 
 }

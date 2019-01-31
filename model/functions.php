@@ -30,7 +30,7 @@ $post=$reponse->fetch();
     return $post;
 }
 function connect_user($bdd,$usr,$mdp){
-  $reponse=$bdd->prepare('SELECT A.id,A.firstname,A.lastname,A.email from authors as A where A.email=? and A.password=?');
+  $reponse=$bdd->prepare('SELECT A.id,A.firstname,A.lastname,A.email,A.level from authors as A where A.email=? and A.password=?');
    $reponse->execute(array($usr,MD5($mdp)));
     $post=$reponse->fetch();
     $reponse->closeCursor();
