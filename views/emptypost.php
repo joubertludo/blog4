@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION{'id'})) {
+
+?>
+
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
   <form method="get" action="index.php">
@@ -48,3 +53,7 @@
     <button type="submit" class="btn btn-warning">Envoyer</button>
   </form>
 </div>
+<?php
+
+        }
+?>

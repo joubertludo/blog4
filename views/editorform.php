@@ -1,3 +1,8 @@
+
+<?php
+if (isset($_SESSION{'id'})) {
+
+?>
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
   <form method="get" action="index.php">
@@ -22,8 +27,10 @@
         <select name="nameaut" id="inputState" class="form-control">
         <option selected><?php echo($edit['firstname'])?></option>
           <?php
+          $autchoose=$edit['firstname'];
           foreach($list_authors as $author){
-            if($edit['firstname']!=$author['firstname']){
+            
+            if($autchoose!=$author['firstname']){
               echo "<option value=".$author['id'].">".$author['firstname']."</option>";
             }
           }
@@ -35,10 +42,10 @@
         <select name="namecat" id="inputState" class="form-control">
         <option selected><?php echo($edit['name'])?></option>
           <?php
-          var_dump($list_categories);
+          $catchoose=$edit['name'];
           foreach($list_categories as $categorie){          
             
-            if($edit['name']!=$categorie['name']){
+            if($catchoose!=$categorie['name']){
               echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
             }
           }
@@ -53,3 +60,8 @@
     <button type="submit" class="btn btn-warning">Envoyer</button>
   </form>
 </div>
+<?php
+
+        }
+
+        ?>
