@@ -27,12 +27,12 @@ if (isset($_SESSION{'id'})) {
         <select name="nameaut" id="inputState" class="form-control">
         <option selected><?php echo($edit['firstname'])?></option>
           <?php
-          $autchoose=$edit['firstname'];
+          $autchoose2=$edit['firstname'];
           foreach($list_authors as $author){
-            
-            if($autchoose!=$author['firstname']){
-              echo "<option value=".$author['id'].">".$author['firstname']."</option>";
-            }
+            echo "<option value=".$author['id'].">".$author['firstname']."</option>";
+            // if($autchoose2!=$author['firstname']){
+             
+            // }
           }
           ?>
         </select>
@@ -42,19 +42,15 @@ if (isset($_SESSION{'id'})) {
         <select name="namecat" id="inputState" class="form-control">
         <option selected><?php echo($edit['name'])?></option>
           <?php
-          $catchoose=$edit['name'];
+          $catchoose2=$edit['name'];
           foreach($list_categories as $categorie){          
-            
-            if($catchoose!=$categorie['name']){
-              echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
-            }
+            echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
+            // if($catchoose2!=$categorie['name']){
+              
+            // }
           }
           ?>
         </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Date</label>
-        <input type="date" class="form-control" id="inputZip" value="<?php  echo($edit['updated_date'])?>" >
       </div>
     </div>
     <button type="submit" class="btn btn-warning">Envoyer</button>

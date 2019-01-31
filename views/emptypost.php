@@ -38,16 +38,12 @@ if (isset($_SESSION{'id'})) {
         <select name="namecat"  id="inputState" class="form-control">
           <option selected></option>
           <?php
-          var_dump($list_categories);
+    
           foreach($list_categories as $categorie){
             echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
           }
           ?>
         </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Date</label>
-        <input type="date" class="form-control" id="inputZip" value="<?php $date = date('m/d/Y'); echo($date);?>">
       </div>
     </div>
     <button type="submit" class="btn btn-warning">Envoyer</button>
