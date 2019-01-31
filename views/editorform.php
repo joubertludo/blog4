@@ -24,30 +24,30 @@ if (isset($_SESSION{'id'})) {
     <div class="form-row">
     <div class="form-group col-md-4">
         <label for="inputState">Auteurs</label>
-        <select name="nameaut" id="inputState" class="form-control">
+        <select name="modifnameaut" id="inputState" class="form-control">
         <option selected><?php echo($edit['firstname'])?></option>
           <?php
           $autchoose2=$edit['firstname'];
           foreach($list_authors as $author){
-            echo "<option value=".$author['id'].">".$author['firstname']."</option>";
-            // if($autchoose2!=$author['firstname']){
-             
-            // }
+       
+            if($autchoose2!=$author['firstname']){
+              echo "<option value=".$author['id'].">".$author['firstname']."</option>";
+            }
           }
           ?>
         </select>
       </div>
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
-        <select name="namecat" id="inputState" class="form-control">
+        <select name="modifnamecat" id="inputState" class="form-control">
         <option selected><?php echo($edit['name'])?></option>
           <?php
           $catchoose2=$edit['name'];
           foreach($list_categories as $categorie){          
-            echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
-            // if($catchoose2!=$categorie['name']){
-              
-            // }
+            
+            if($catchoose2!=$categorie['name']){
+              echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
+            }
           }
           ?>
         </select>

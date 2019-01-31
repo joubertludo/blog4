@@ -43,11 +43,11 @@ function delete_post($bdd,$id){
 }
 function new_post($bdd,$title,$content){
     $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`,`id_aut`,`id_cat`) VALUES (?,?,?,?,?)');
-    $reponse->execute(array($title,$content,'',$_GET['nameaut'],$_GET['namecat']));
+    $reponse->execute(array(utf8_decode($title),utf8_decode($content),'$_FILES',$_GET['nameaut'],$_GET['namecat']));
 }
 function modif_post($bdd,$title,$content,$id){
     $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?, id_aut=?, id_cat=? where posts.id=?');
-    $reponse->execute(array($title,$content,$_GET['nameaut'],$_GET['namecat'],$id));
+    $reponse->execute(array(utf8_decode($title),utf8_decode($content),$_GET['modifnameaut'],$_GET['modifnamecat'],$id));
 }
 function list_categories($bdd){
   $reponse=$bdd->prepare('SELECT * from categories');

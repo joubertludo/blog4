@@ -48,7 +48,7 @@ if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
 if(isset($_GET['formtitre']) && isset($_GET['formcontent'])){
 	$title=$_GET['formtitre'];
 $content=$_GET['formcontent'];
-// $file=$_GET['formfile'];
+// $file=$_FILES['formfile'];
 $create=new_post($bdd,$title,$content);
 }
 
