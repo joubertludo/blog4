@@ -1,7 +1,7 @@
 
 <section class="container">
 	<div class="d-flex flex-row justify-content-between">
-	<h2 class="text-white"><?php echo ($post['title']) ?></h2> 
+	<h2 class="text-white"><?php echo (utf8_encode($post['title'])) ?></h2> 
 	<div>
     <?php
     if(isset($_SESSION['id']) && $_SESSION['level']==1){
@@ -18,8 +18,8 @@
 </div>
 </div>
 <div class="row">
-    <div  class="col-md-7 bg-secondary p-3 d-flex align-items-center">
-    <div style="height: 800px"  class=" flex-column">
+    <div  class="col-md-7 bg-secondary p-3 mb-5 d-flex align-items-center">
+    <div style="min-height: 400px"  class=" flex-column">
     <div  class="text-white d-flex">
     	<h5><?php echo" ".$post['firstname']?></h5>
       <h5><?php  
@@ -32,6 +32,6 @@
  
     </div>
     </div>
-    <img style="height:400px" src='img/repimg/<?php echo($post['file'])?>' class="col-md-5 img-fluid" alt="...">
+    <img style="min-height:400px" src='img/repimg/<?php echo($post['file'])?>' class="col-md-5 img-fluid" alt="...">
   </div>
 </section>

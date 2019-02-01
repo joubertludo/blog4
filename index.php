@@ -53,10 +53,10 @@ $file=$_FILES['uploadfile'];
 $create=new_post($bdd,$title,$content,$file);
 }
 
-if(isset($_GET['formtitremodif']) && isset($_GET['formcontentmodif'])){
-$title=$_GET['formtitremodif'];
-$content=$_GET['formcontentmodif'];
-$id=$_GET['id'];
+if(isset($_POST['formtitremodif']) && isset($_POST['formcontentmodif'])){
+$title=$_POST['formtitremodif'];
+$content=$_POST['formcontentmodif'];
+$id=$_POST['id'];
 // $file=$_GET['formfile'];
 $modif=modif_post($bdd,$title,$content,$id);
 }
