@@ -41,11 +41,11 @@ if (isset($_SESSION['id'])) {
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select name="namecat"  id="inputState" class="form-control">
-          <option selected></option>
+          <option selected value=".$categorie['id'].">Sans catégorie</option>
           <?php
     
           foreach($list_categories as $categorie){
-            echo "<option value=".$categorie['id'].">".$categorie['name']."</option>";
+            echo "<option value=".$categorie['id'].">".utf8_encode($categorie['name'])."</option>";
           }
           ?>
         </select>

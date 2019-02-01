@@ -26,7 +26,7 @@
      
       echo' -'.date("d-m-Y",strtotime($post['updated_date']));
       ?></h5>
-      <h5><?php echo' -'.$post['name']?></h5>
+      <h5><?php echo' -'.utf8_encode($post['name'])?></h5>
     </div>
     <?php echo($post['content']) ?>
  
