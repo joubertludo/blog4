@@ -88,6 +88,7 @@ if(isset($_GET['page'])){
 		require 'views/emptypost.php';
 			break;
 			case'signinform':
+			$new_aut=new_authors($bdd);
 			require'views/signinform.php';
 			break;
 
