@@ -6,6 +6,8 @@ require('inc/head.php');
 require('inc/nav.php');
 require('inc/header.php');
 
+unlink('img/repimg/7e0ee1d3686ddcbd294d8df2f11a7444.jpg');
+
 if (isset($_GET['action']) && $_GET['action']=='delete') {
     $delete=delete_post($bdd,$_GET['id']);
     echo("
@@ -56,9 +58,10 @@ $create=new_post($bdd,$title,$content,$file);
 if(isset($_POST['formtitremodif']) && isset($_POST['formcontentmodif'])){
 $title=$_POST['formtitremodif'];
 $content=$_POST['formcontentmodif'];
+$file=$_FILES['uploadfile'];
 $id=$_POST['id'];
 // $file=$_GET['formfile'];
-$modif=modif_post($bdd,$title,$content,$id);
+$modif=modif_post($bdd,$title,$content,$file,$id);
 }
 
 

@@ -5,7 +5,7 @@ if (isset($_SESSION{'id'})) {
 ?>
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
-  <form method="post" action="index.php">
+  <form method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <input name="id" type="hidden" value="<?php echo($_GET['id']) ?>">
       <label for="sfrvsvdv">Titre</label>
@@ -17,7 +17,7 @@ if (isset($_SESSION{'id'})) {
     </div>
     <div class="input-group mb-3">
   <div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <input name="uploadfile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label" for="inputGroupFile01"><?php echo $edit['file']?></label>
   </div>
 </div>

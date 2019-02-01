@@ -43,14 +43,19 @@ function delete_post($bdd,$id){
 }
 function new_post($bdd,$title,$content,$file){
     $new_name=md5(basename($file['name']. time()));
-    $extension=end(explode('.',$file['name']));
+    $extension1=explode('.',$file['name']);
+    $extension=end($extension1);
     move_uploaded_file($file['tmp_name'], 'img/repimg/'.$new_name.'.'.$extension);
     $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`,`id_aut`,`id_cat`) VALUES (?,?,?,?,?)');
     $reponse->execute(array(utf8_decode($title),utf8_decode($content),$new_name.'.'.$extension,$_POST['nameaut'],$_POST['namecat']));
 }
-function modif_post($bdd,$title,$content,$id){
-    $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?, id_aut=?, id_cat=? where posts.id=?');
-    $reponse->execute(array(utf8_decode($title),utf8_decode($content),$_POST['modifnameaut'],$_POST['modifnamecat'],$id));
+function modif_post($bdd,$title,$content,$file,$id){
+    $new_name=md5(basename($file['name']. time()));
+    $extension1=explode('.',$file['name']);
+    $extension=end($extension1);
+    move_uploaded_file($file['tmp_name'], 'img/repimg/'.$new_name.'.'.$extension);
+    $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?,file=?,id_aut=?, id_cat=? where posts.id=?');
+    $reponse->execute(array(utf8_decode($title),utf8_decode($content),$new_name.'.'.$extension,$_POST['modifnameaut'],$_POST['modifnamecat'],$id));
 }
 function list_categories($bdd){
   $reponse=$bdd->prepare('SELECT * from categories');
@@ -74,5 +79,5 @@ while ($author = $reponse->fetch()) {
     $reponse->closeCursor();
     return $list_authors;
 }
-?>
+
 

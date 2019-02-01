@@ -32,6 +32,6 @@
  
     </div>
     </div>
-    <img style="min-height:400px" src='img/repimg/<?php echo($post['file'])?>' class="col-md-5 img-fluid" alt="...">
+    <img style="" src='img/repimg/<?php echo($post['file'])?>' class="col-md-5 img-fluid" alt="...">
   </div>
 </section>
