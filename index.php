@@ -84,6 +84,10 @@ if(isset($_GET['page'])){
 		$list_authors=list_authors($bdd);
 		require 'views/emptypost.php';
 			break;
+			case'signinform':
+			require'views/signinform.php';
+			break;
+
 		default:
 			$all_posts=search_all_posts($bdd);
 			// var_dump($all_posts);
@@ -96,8 +100,10 @@ else{
 			$all_posts=search_all_posts($bdd);
 			// var_dump($all_posts);
 			require 'views/blog.php';
+
 		
 	}
+
 
 
 
