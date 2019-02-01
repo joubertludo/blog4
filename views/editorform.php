@@ -8,6 +8,8 @@ if (isset($_SESSION{'id'})) {
   <form method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <input name="id" type="hidden" value="<?php echo($_GET['id']) ?>">
+      <!-- <input name="oldfile" type="hidden" value="<?php echo($edit['file']) ?>"> -->
+
       <label for="sfrvsvdv">Titre</label>
       <input name="formtitremodif" type="text" class="form-control" id="formGroupExampleInput" placeholder="Exemple" value="<?php echo($edit['title'])?>" >
     </div>

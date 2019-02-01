@@ -6,7 +6,11 @@ require('inc/head.php');
 require('inc/nav.php');
 require('inc/header.php');
 
-unlink('img/repimg/7e0ee1d3686ddcbd294d8df2f11a7444.jpg');
+// var_dump($_FILES['uploadfile']['name']);
+// echo($_POST['oldfile']);
+// if($_FILES['uploadfile']['name'] != ''){
+// 	unlink('img/repimg/'.$_POST['oldfile']);
+// }
 
 if (isset($_GET['action']) && $_GET['action']=='delete') {
     $delete=delete_post($bdd,$_GET['id']);
