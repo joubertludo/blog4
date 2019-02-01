@@ -23,7 +23,7 @@ $post=$reponse->fetch();
 }
 function edit_post($bdd,$id)
 {
-  $reponse=$bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file,C.name from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id where P.id=?' );
+  $reponse=$bdd->prepare('SELECT P.id,P.id_cat,P.id_aut,P.title,A.firstname,P.updated_date,P.content,P.file,C.name from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id where P.id=?' );
   $reponse->execute(array($id));
 $post=$reponse->fetch();
     $reponse->closeCursor();

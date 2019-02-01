@@ -54,7 +54,7 @@ $create=new_post($bdd,$title,$content,$file);
 }
 
 if(isset($_GET['formtitremodif']) && isset($_GET['formcontentmodif'])){
-	$title=$_GET['formtitremodif'];
+$title=$_GET['formtitremodif'];
 $content=$_GET['formcontentmodif'];
 $id=$_GET['id'];
 // $file=$_GET['formfile'];

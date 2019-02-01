@@ -25,7 +25,7 @@ if (isset($_SESSION{'id'})) {
     <div class="form-group col-md-4">
         <label for="inputState">Auteurs</label>
         <select name="modifnameaut" id="inputState" class="form-control">
-        <option selected><?php echo($edit['firstname'])?></option>
+        <option selected value=""><?php echo($edit['firstname'])?></option>
           <?php
           $autchoose2=$edit['firstname'];
           foreach($list_authors as $author){
@@ -40,7 +40,7 @@ if (isset($_SESSION{'id'})) {
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select name="modifnamecat" id="inputState" class="form-control">
-        <option selected><?php echo($edit['name'])?></option>
+        <option selected value=""><?php echo($edit['name'])?></option>
           <?php
           $catchoose2=$edit['name'];
           foreach($list_categories as $categorie){          
