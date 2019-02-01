@@ -8,9 +8,7 @@
       echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
 <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
 
-    }
-
-    if(isset($_SESSION['id']) && $_SESSION['firstname']==$_GET['auteur']){
+    }elseif(isset($_SESSION['id']) && $_SESSION['firstname']==$_GET['auteur']){
       echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
 <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
     }
