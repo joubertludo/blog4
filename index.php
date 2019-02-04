@@ -72,7 +72,7 @@ echo($_POST['oldfile']);
 if($_FILES['uploadfile']['name'] != ''){
     unlink('img/repimg/'.$_POST['oldfile']);
 }
-
+}
 
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
