@@ -61,6 +61,7 @@ if(isset($_POST['fname']) && isset($_POST['mdp'])){
 	header('location: newuser');
 	
 }
+
 }
 
 
