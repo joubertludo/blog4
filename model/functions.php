@@ -83,5 +83,12 @@ function new_authors($bdd,$firstname,$lastname,$email,$password){
   $reponse->execute(array($firstname,$lastname,$email,md5($password)));
 
 }
+function exist_authors($bdd,$email){
+  $reponse=$bdd->prepare('SELECT count(*) from `authors` where email=?');
+  $reponse->execute(array($email));
+  $posts=$reponse->fetch();
+  $reponse->closeCursor();
+  return $posts;
+}
 ?>
 

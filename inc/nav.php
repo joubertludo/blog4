@@ -20,6 +20,11 @@
                           echo" <li class='nav-item'>
                        <p class='nav-link'>Bonjour, ".$_SESSION['firstname']."</p>
                         </li>";
+                        if ($_SESSION['level']=='1') {
+                         echo" <li class='nav-item'>
+                        <a class='nav-link' href='newuser'>Créer un utilisateur</a>
+                        </li>";
+                        }
                         
 
 
@@ -27,9 +32,7 @@
                         echo"<li class='nav-item'>
                     <a class='nav-link hand'  data-toggle='modal' data-target='#exampleModalCenter'>Se connecter</a>
                 </li>";
-                echo" <li class='nav-item'>
-                        <a class='nav-link' href='newuser'>Créer un utilisateur</a>
-                        </li>";
+               
       
                     }
                     ?>

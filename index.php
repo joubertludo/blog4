@@ -49,7 +49,18 @@ if(isset($_POST['fname']) && isset($_POST['mdp'])){
 	$password=$_POST['mdp'];
 	$lastname=$_POST['lname'];
 	$email=$_POST['usremail'];
+	$existauthors=exist_authors($bdd,$email);
+
+
+	if($existauthors['count(*)']=='0'){
 	$createnewuser=new_authors($bdd,$firstname,$lastname,$email,$password);
+	echo "<p class='text-success'>Votre compte utilisateur a été créé, vous pouvez à présent vous connecter !</p>";
+
+	}else{
+	$_SESSION['unvalidemail']='true';
+	header('location: newuser');
+	
+}
 }
 
 
@@ -97,6 +108,7 @@ if(isset($_GET['page'])){
 		require 'views/emptypost.php';
 			break;
 			case'signinform':
+
 			$new_aut=new_authors($bdd,$firstname,$lastname,$email,$password);
 			require'views/signinform.php';
 			break;
