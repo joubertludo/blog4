@@ -6,11 +6,6 @@ require('inc/head.php');
 require('inc/nav.php');
 require('inc/header.php');
 
-// var_dump($_FILES['uploadfile']['name']);
-// echo($_POST['oldfile']);
-// if($_FILES['uploadfile']['name'] != ''){
-// 	unlink('img/repimg/'.$_POST['oldfile']);
-// }
 
 if (isset($_GET['action']) && $_GET['action']=='delete') {
     $delete=delete_post($bdd,$_GET['id']);
@@ -49,13 +44,19 @@ if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
 	header('Location: index.php');
 
 }
-
+if(isset($_POST['fname']) && isset($_POST['mdp'])){
+	$firstname=$_POST['fname'];
+	$password=$_POST['mdp'];
+	$lastname=$_POST['lname'];
+	$email=$_POST['usremail'];
+	$createnewuser=new_authors($bdd,$firstname,$lastname,$email,$password);
+}
 
 
 if(isset($_POST['formtitre']) && isset($_POST['formcontent'])){
 	$title=$_POST['formtitre'];
-$content=$_POST['formcontent'];
-$file=$_FILES['uploadfile'];
+	$content=$_POST['formcontent'];
+	$file=$_FILES['uploadfile'];
 $create=new_post($bdd,$title,$content,$file);
 }
 
@@ -66,6 +67,10 @@ $file=$_FILES['uploadfile'];
 $id=$_POST['id'];
 // $file=$_GET['formfile'];
 $modif=modif_post($bdd,$title,$content,$file,$id);
+var_dump($_FILES['uploadfile']['name']);
+echo($_POST['oldfile']);
+if($_FILES['uploadfile']['name'] != ''){
+    unlink('img/repimg/'.$_POST['oldfile']);
 }
 
 
@@ -92,7 +97,7 @@ if(isset($_GET['page'])){
 		require 'views/emptypost.php';
 			break;
 			case'signinform':
-			$new_aut=new_authors($bdd);
+			$new_aut=new_authors($bdd,$firstname,$lastname,$email,$password);
 			require'views/signinform.php';
 			break;
 

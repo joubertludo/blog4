@@ -3,13 +3,13 @@
 	<div class="d-flex flex-row justify-content-between">
 	<h2 class="text-white"><?php echo (utf8_encode($post['title'])) ?></h2> 
 	<div>
-    <?php
+    <?php 
     if(isset($_SESSION['id']) && $_SESSION['level']==1){
-      echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
+      echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
 <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
 
-    }elseif(isset($_SESSION['id']) && $_SESSION['firstname']==$_GET['auteur']){
-      echo" <a href='index.php?page=editorform&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
+    }elseif(isset($_SESSION['id']) && $_SESSION['id']==$_GET['auteur']){
+      echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'>  Editer</a>
 <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-secondary btn-sm'> Supprimer</a>";
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 function search_all_posts($bdd){
-    $reponse = $bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id');
+    $reponse = $bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file,P.id_aut from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id');
     $reponse->execute();
     $list_post = array();
     while ($post = $reponse->fetch()) {
@@ -78,9 +78,9 @@ while ($author = $reponse->fetch()) {
     $reponse->closeCursor();
     return $list_authors;
 }
-function new_authors($bdd){
-  $reponse=$bdd->prepare('INSERT INTO `authors`(`firstname`,`lastname`,`email`,`password`,`level`) VALUES(?,?,?,?,?)');
-  $reponse->excute(array($firstname, $lastname,$email,$password,'2'));
+function new_authors($bdd,$firstname,$lastname,$email,$password){
+  $reponse=$bdd->prepare('INSERT INTO `authors`(`firstname`,`lastname`,`email`,`password`) VALUES(?,?,?,?)');
+  $reponse->execute(array($firstname,$lastname,$email,md5($password)));
 
 }
 ?>

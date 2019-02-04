@@ -15,7 +15,7 @@
                     <a class='nav-link' href='index.php?stopsession=yes'>Se déconnecter</a>
                     </li>";
                     echo" <li class='nav-item'>
-                        <a class='nav-link' href='index.php?page=emptypost'>Ajouter un article</a>
+                        <a class='nav-link' href='newpost'>Ajouter un article</a>
                         </li>";
                           echo" <li class='nav-item'>
                        <p class='nav-link'>Bonjour, ".$_SESSION['firstname']."</p>
@@ -28,7 +28,7 @@
                     <a class='nav-link hand'  data-toggle='modal' data-target='#exampleModalCenter'>Se connecter</a>
                 </li>";
                 echo" <li class='nav-item'>
-                        <a class='nav-link' href='index.php?page=signinform'>Créer un utilisateur</a>
+                        <a class='nav-link' href='newuser'>Créer un utilisateur</a>
                         </li>";
       
                     }

@@ -1,9 +1,9 @@
 <div class="container mb-5">
-<form class="needs-validation" novalidate>
+<form method="post" action="index.php" class="needs-validation" novalidate>
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01" class="text-white">First name</label>
-      <input mane="fname" type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Paul" required>
+      <input name="fname" type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Paul" required>
       <div class="valid-feedback">
         Looks good!
       </div>
