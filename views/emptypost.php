@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])) {
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select name="namecat"  id="inputState" class="form-control">
-          <option selected value=".$categorie['id'].">Sans catégorie</option>
+          <option selected value=".$categorie['id']."></option>
           <?php
     
           foreach($list_categories as $categorie){
