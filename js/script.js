@@ -12,7 +12,6 @@ $('#myModal').on('shown.bs.modal', function () {
 //   alert("Submitted");
 // });
 function validateForm(){
-	<?php echo "coucou";?>;
 	var signForm=$('.needs-validation');
 	var pass1=$('#inputPassword1').val();
 	var pass2=$('#inputPassword2').val();
@@ -21,3 +20,4 @@ function validateForm(){
 		return false;
 	}
 }
+ // 
