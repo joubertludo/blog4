@@ -75,19 +75,14 @@ $create=new_post($bdd,$title,$content,$file);
 if(isset($_POST['formtitremodif']) && isset($_POST['formcontentmodif'])){
 $title=$_POST['formtitremodif'];
 $content=$_POST['formcontentmodif'];
-$file=$_FILES['uploadfile'];
-if ($_POST['oldfile'] == $file){
-	$file=$_POST['oldfile'];
-}
-
 $id=$_POST['id'];
-// $file=$_GET['formfile'];
-$modif=modif_post($bdd,$title,$content,$file,$id);
 
-var_dump($_FILES['uploadfile']['name']);
-echo($_POST['oldfile']);
-if($_FILES['uploadfile']['name'] != ''){
-    unlink('img/repimg/'.$_POST['oldfile']);
+if ($_FILES['uploadfile']['name']==''){
+	$file=$_POST['oldfile'];
+	$modif=modif_post2($bdd,$title,$content,$file,$id);
+}else{
+	$file=$_FILES['uploadfile'];
+	$modif=modif_post($bdd,$title,$content,$file,$id);
 }
 }
 

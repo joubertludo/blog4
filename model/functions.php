@@ -56,6 +56,11 @@ function modif_post($bdd,$title,$content,$file,$id){
     $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?,file=?,id_aut=?, id_cat=? where posts.id=?');
     $reponse->execute(array(utf8_decode($title),utf8_decode($content),$new_name.'.'.$extension,$_POST['modifnameaut'],$_POST['modifnamecat'],$id));
 }
+function modif_post2($bdd,$title,$content,$file,$id){
+    $reponse=$bdd->prepare('UPDATE `posts` set title=?, content=?,file=?,id_aut=?, id_cat=? where posts.id=?');
+    $reponse->execute(array(utf8_decode($title),utf8_decode($content),$file,$_POST['modifnameaut'],$_POST['modifnamecat'],$id));
+}
+
 function list_categories($bdd){
   $reponse=$bdd->prepare('SELECT * from categories');
   $reponse->execute();
