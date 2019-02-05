@@ -5,14 +5,14 @@ if (isset($_SESSION['id'])) {
 
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
-  <form method="post" action="index.php" enctype="multipart/form-data">
+  <form onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <label for="sfrvsvdv">Titre</label>
-      <input name="formtitre" type="text" class="form-control" id="formGroupExampleInput" placeholder="Exemple" value="" >
+      <input name="formtitre" type="text" class="form-control" id="title" placeholder="Exemple" value="" >
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Contenu</label>
-      <textarea name="formcontent" class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+      <textarea name="formcontent" class="form-control" id="content" rows="3" ></textarea>
     </div>
     <div class="input-group mb-3">
   <div class="custom-file">
@@ -40,7 +40,7 @@ if (isset($_SESSION['id'])) {
      
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
-        <select name="namecat"  id="inputState" class="form-control">
+        <select name="namecat"  id="categorie" class="form-control">
           <option selected value=".$categorie['id']."></option>
           <?php
     
@@ -52,6 +52,7 @@ if (isset($_SESSION['id'])) {
       </div>
     </div>
     <button type="submit" class="btn btn-warning">Envoyer</button>
+    <div class="result"></div>
   </form>
 </div>
 <?php
