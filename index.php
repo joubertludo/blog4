@@ -104,15 +104,19 @@ if(isset($_GET['page'])){
 			require 'views/userform.php';
 			break;
 		case 'emptypost':
-		$list_categories=list_categories($bdd);
-		$list_authors=list_authors($bdd);
-		require 'views/emptypost.php';
+			$list_categories=list_categories($bdd);
+			$list_authors=list_authors($bdd);
+			require 'views/emptypost.php';
 			break;
-			case'signinform':
-
+		case'signinform':
 			$new_aut=new_authors($bdd,$firstname,$lastname,$email,$password);
 			require'views/signinform.php';
 			break;
+		case'admin':
+			$search_all_categories=search_all_categories($bdd);
+			require 'views/admin.php';
+			break;
+
 
 		default:
 			$all_posts=search_all_posts($bdd);

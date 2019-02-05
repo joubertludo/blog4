@@ -72,6 +72,17 @@ while ($categorie = $reponse->fetch()) {
     $reponse->closeCursor();
     return $list_categories;
 }
+function search_all_categories($bdd){
+    $reponse=$bdd->prepare('SELECT p.updated_date, p.title, C.name, count(*) FROM `posts` AS P INNER JOIN categories AS C ON P.id_cat=C.id GROUP BY id_cat');
+    $reponse->execute();
+    $list_categories=array();
+  while ($categorie = $reponse->fetch()) {
+       
+          $list_categories[] = $categorie;
+      }
+      $reponse->closeCursor();
+      return $list_categories;
+  }
 function list_authors($bdd){
   $reponse=$bdd->prepare('SELECT id,firstname from authors');
   $reponse->execute();

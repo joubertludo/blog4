@@ -64,7 +64,9 @@ if (isset($_SESSION{'id'})) {
         </select>
       </div>
     </div>
+    
     <button type="submit" class="btn btn-warning">Envoyer</button>
+    
   </form>
 </div>
 <?php

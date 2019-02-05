@@ -1,3 +1,4 @@
+
 <?php
 if (isset($_SESSION['id'])) {
 
@@ -5,19 +6,24 @@ if (isset($_SESSION['id'])) {
 
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
-  <form onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
+  <form class="was-validated" onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <label for="sfrvsvdv">Titre</label>
-      <input name="formtitre" type="text" class="form-control" id="title" placeholder="Exemple" value="" >
+      <input name="formtitre" type="text" class="form-control" id="title" placeholder="Exemple" value="">
     </div>
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Contenu</label>
       <textarea name="formcontent" class="form-control" id="content" rows="3" ></textarea>
     </div>
     <div class="input-group mb-3">
-  <div class="custom-file">
+  <!-- <div class="custom-file">
     <input name="uploadfile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label  class="custom-file-label" for="inputGroupFile01"></label>
+  </div> -->
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+    <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div>
 </div>
     <div class="form-row">
@@ -26,7 +32,7 @@ if (isset($_SESSION['id'])) {
         echo"  <div class='form-group col-md-4'>
         <label for='inputState'>Auteurs</label>
         <select name='nameaut'  id='inputState' class='form-control'>
-          <option selected></option>"?>
+          "?>
           <?php
           foreach($list_authors as $author){
             echo '<option value='.$author['id'].'>'.$author['firstname'].'</option>';
@@ -41,7 +47,7 @@ if (isset($_SESSION['id'])) {
       <div class="form-group col-md-4">
         <label for="inputState">Catégorie</label>
         <select name="namecat"  id="categorie" class="form-control">
-          <option selected value=".$categorie['id']."></option>
+ 
           <?php
     
           foreach($list_categories as $categorie){
@@ -51,8 +57,10 @@ if (isset($_SESSION['id'])) {
         </select>
       </div>
     </div>
+    <?php echo"".$_SERVER['SCRIPT_URI'].""; ?>
     <button type="submit" class="btn btn-warning">Envoyer</button>
     <div class="result"></div>
+
   </form>
 </div>
 <?php

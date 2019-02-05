@@ -19,5 +19,13 @@ function validateForm(){
 		$('.result').html("Mots de passe différents");
 		return false;
 	}
+
+
+}
+function validateEmptyPost(){
+	if ($('#title').val()=='' || $('#categorie')==''){
+		$('.result').html("Veuillez compléter les champs vides.");
+		return false;
+	}
 }
  // 

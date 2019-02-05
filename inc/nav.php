@@ -24,6 +24,9 @@
                          echo" <li class='nav-item'>
                         <a class='nav-link' href='newuser'>Créer un utilisateur</a>
                         </li>";
+                        echo" <li class='nav-item'>
+                        <a class='nav-link' href='index.php?page=admin'>Admin</a>
+                        </li>";
                         }
                         
 
