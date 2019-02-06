@@ -3,8 +3,8 @@
 if (isset($_SESSION{'id'})) {
 
 ?>
-<div class="container pb-5 mb-5 bg-secondary rounded">
-  <h2>Editer votre article</h2>
+<div class="container pb-5 p-3 mb-5 bg-light rounded">
+  <h2 class="text-center pt-5">Editer votre article</h2>
   <form method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <input name="id" type="hidden" value="<?php echo($_GET['id']) ?>">
@@ -19,7 +19,7 @@ if (isset($_SESSION{'id'})) {
     </div>
     <div class="input-group mb-3">
   <div class="custom-file">
-    <input name="uploadfile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <input name="uploadfile" type="file" class="custom-file-input " id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label class="custom-file-label" for="inputGroupFile01"><?php echo $edit['file']?></label>
   </div>
 </div>
@@ -65,7 +65,7 @@ if (isset($_SESSION{'id'})) {
       </div>
     </div>
     
-    <button type="submit" class="btn btn-warning">Envoyer</button>
+    <button type="submit" class="btn btn-success">Envoyer</button>
     
   </form>
 </div>

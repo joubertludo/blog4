@@ -1,9 +1,9 @@
 
-<footer>
+<footer style="background-color:  #e8e2db" >
 			
-  <div class="card-footer text-muted text-center bg-secondary ">
- <a class="text-white" href=""> Accueil</a>
-   <p class="text-white">© <?php print date('d/m/y')?> - Tous droits réservés.</p>
+  <div class="card-footer text-muted text-center  ">
+ <a class="text-dark" href="index.php"> Accueil</a>
+   <p class="text-dark">© <?php print date('d/m/y')?> - Tous droits réservés.</p>
    
 </div>
 </footer>

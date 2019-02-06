@@ -1,7 +1,7 @@
 <section class="bg-white" >
 
 
-<section class="container pt-5">
+<section class="container pt-5 pb-5">
 <?php foreach ($all_posts as $datas) {
   $CURRENT_PAGE = ($datas['id']);
   $CURRENT_AUTHOR = ($datas['id_aut']);
@@ -26,6 +26,6 @@
 
 
 
-   <hr class="featurette-divider">
+  
 </section>
 </section>

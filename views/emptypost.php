@@ -4,8 +4,8 @@ if (isset($_SESSION['id'])) {
 
 ?>
 
-<div class="container pb-5 mb-5 bg-secondary rounded">
-  <h2>Editer votre article</h2>
+<div class="container pb-5 mb-5 bg-light rounded">
+  <h2 class="text-center pt-3">Editer votre article</h2>
   <form class="" onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <label for="sfrvsvdv">Titre</label>
@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])) {
     <div class="form-row">
       <?php
       if ($_SESSION['level']==1){
-        echo"  <div class='form-group col-md-4'>
+        echo"  <div class='form-group col-6'>
         <label for='inputState'>Auteurs</label>
         <select name='nameaut'  id='inputState' class='form-control'>
           "?>
@@ -40,7 +40,7 @@ if (isset($_SESSION['id'])) {
       ?>
    
      
-      <div class="form-group col-md-4">
+      <div class="form-group col-6">
         <label for="inputState">Catégorie</label>
         <select name="namecat"  id="categorie" class="form-control">
  
@@ -54,7 +54,7 @@ if (isset($_SESSION['id'])) {
       </div>
     </div>
     <?php echo"".$_SERVER['SCRIPT_URI'].""; ?>
-    <button type="submit" class="btn btn-warning">Envoyer</button>
+    <button type="submit" class="btn btn-success">Envoyer</button>
     <div class="result"></div>
 
   </form>
