@@ -30,7 +30,7 @@
             <h6 class="text-right">Par 
               <?php echo''.$post['firstname']?>
             </h6>
-            
+            <p>salut</p>
           </div>
           <?php echo($post['content']) ?>
         </div>
