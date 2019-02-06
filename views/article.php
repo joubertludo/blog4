@@ -6,10 +6,7 @@
       <?php 
       if(isset($_SESSION['id']) && $_SESSION['level']==1){
         echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>  Editer</a>
-        <a type='button' class='btn btn-primary' data-toggle='modal' data-target='#Modal'>
-        Launch demo modal
-      </a>
-  <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'> Supprimer</a>";
+              <a data-toggle='modal' href='#Modal' type='button' class='btn btn-light mb-2 btn-sm'> Supprimer</a>";
   
       }elseif(isset($_SESSION['id']) && $_SESSION['id']==$_GET['auteur']){
         echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>Editer</a>

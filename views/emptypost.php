@@ -17,7 +17,7 @@ if (isset($_SESSION['id'])) {
     </div>
     <div class="input-group mb-3">
   <div class="custom-file">
-    <input name="uploadfile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <input name="uploadfile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" value="img/image.jpg">
     <label  class="custom-file-label" for="inputGroupFile01"></label>
   </div>
 
