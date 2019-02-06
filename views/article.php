@@ -30,7 +30,7 @@
             <h6 class="text-right">Par 
               <?php echo''.$post['firstname']?>
             </h6>
-            <p>salut</p>
+
           </div>
           <?php echo($post['content']) ?>
         </div>
@@ -41,6 +41,5 @@
           <h5 class="text-right">Catégorie : <?php echo utf8_encode($post['name']) .'. '. date("d-m-Y",strtotime($post['updated_date']));?></h5>
      
         </div>
-      <p>Bonjour camarade syndiqué</p>
     </div>
   </section>

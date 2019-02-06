@@ -4,7 +4,7 @@ RewriteRule ^post-([0-9]+)-([0-9]+)$   index.php?page=article&id=$1&auteur=$2 [L
 RewriteRule ^newuser$   index.php?page=signinform [L]
 RewriteRule ^editpost-([0-9]+)$   index.php?page=editorform&id=$1 [L]
 RewriteRule ^newpost$   index.php?page=emptypost [L]
-
+RewriteRule ^admin$   index.php?page=admin [L]
 
 
 </IfModule>
