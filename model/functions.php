@@ -66,8 +66,7 @@ function list_categories($bdd){
   $reponse->execute();
   $list_categories=array();
 while ($categorie = $reponse->fetch()) {
-     
-        $list_categories[] = $categorie;
+    $list_categories[] = $categorie;
     }
     $reponse->closeCursor();
     return $list_categories;

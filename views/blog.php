@@ -20,7 +20,7 @@
            
           </div>
         </div>
-        <img  src='img/repimg/".$datas['file']."' class='col-md-5 img-fluid'>
+        <img  src='img/repimg/".$datas['file']."' class='col-md-5'>
     </div>";
   } ?>
 

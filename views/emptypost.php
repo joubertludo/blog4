@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])) {
 
 <div class="container pb-5 mb-5 bg-secondary rounded">
   <h2>Editer votre article</h2>
-  <form class="was-validated" onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
+  <form class="" onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
     <div class="form-group">
       <label for="sfrvsvdv">Titre</label>
       <input name="formtitre" type="text" class="form-control" id="title" placeholder="Exemple" value="">
@@ -16,15 +16,11 @@ if (isset($_SESSION['id'])) {
       <textarea name="formcontent" class="form-control" id="content" rows="3" ></textarea>
     </div>
     <div class="input-group mb-3">
-  <!-- <div class="custom-file">
+  <div class="custom-file">
     <input name="uploadfile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
     <label  class="custom-file-label" for="inputGroupFile01"></label>
-  </div> -->
-  <div class="custom-file">
-    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-    <div class="invalid-feedback">Example invalid custom file feedback</div>
   </div>
+
 </div>
     <div class="form-row">
       <?php
