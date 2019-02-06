@@ -10,23 +10,27 @@
                     <?php
                     if(isset($_SESSION['id']))
                     {
-                    echo" <li class='nav-item'>
-                    <p class='nav-link'>Bonjour, ".$_SESSION['firstname']."</p>
-                    </li>";
-                    echo" <li class='nav-item'>
-                    <a class='nav-link' href='newpost'>Ajouter un article</a>
-                    </li>";                  
+                    
+                    echo "
+                    <div class='dropdown '>
+                   <button class='btn btn-ligth dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                    <i class='fas fa-drum'></i>
+                     </button>
+                    <div class='dropdown-menu dropdown-menu-right' aria-labelledby='dropdownMenuButton'>
+                    <h6 class='dropdown-header'>Bonjour, ".$_SESSION['firstname']."</h6>
+                    <div class='dropdown-divider'></div>
+                  <a class='dropdown-item'  href='newpost'>Ajouter un article</a>";
+
                         if ($_SESSION['level']=='1') {
-                        echo" <li class='nav-item'>
-                        <a class='nav-link' href='newuser'>Créer un utilisateur</a>
-                        </li>";
-                        echo" <li class='nav-item'>
-                        <a class='nav-link' href='index.php?page=admin'>Admin</a>
-                        </li>";
+                        echo"  <a class='dropdown-item'  href='newuser'>Créer un utilisateur</a>";
+                        echo" <a class='dropdown-item' href='admin'>Administrer</a>";
                         }
-                        echo" <li class='nav-item'>
-                        <a class='nav-link' href='index.php?stopsession=yes' title='Se déconnecter'><i class='fas fa-user-times'></i></a>
-                        </li>";   
+                        echo" 
+                        <div class='dropdown-divider'></div>
+                     <a class='dropdown-item text-center' href='index.php?stopsession=yes'><i class='fas fa-user-times'></i></a> 
+                     </div>
+                    </div>";
+       
 
 
                     }else{
@@ -37,17 +41,11 @@
       
                     }
                     ?>
-<!-- <div class='dropdown'>
- <button class='btn btn-secondary dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-   Dropdown button
- </button>
- <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-   <a class='dropdown-item' href='#'>Action</a>
-   <a class='dropdown-item' href='#'>Another action</a>
-   <a class='dropdown-item' href='#'>Something else here</a>
- </div>
-</div> -->
-               
+
+    
+  
+  
+         
             </ul>
         </div>
         
