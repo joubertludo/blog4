@@ -109,5 +109,15 @@ function exist_authors($bdd,$email){
   $reponse->closeCursor();
   return $posts;
 }
+function search_all_comment($bdd,$comment){
+  $reponse=$bdd->prepare('SELECT * from comment');
+$reponse->execute();
+  $search_all_comment=array();
+while ($comment = $reponse->fetch()) {
+    $search_all_comment[] = $comment;
+    }
+    $reponse->closeCursor();
+    return $search_all_comment;
+}
 ?>
 

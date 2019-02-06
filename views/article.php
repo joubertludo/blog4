@@ -61,3 +61,12 @@
         </div>
     </div>
   </section>
+  <section class="container bg-light mb-3 rounded">
+<div class="media pt-3 pb-3 ">
+  <img style="max-height: 80px;" src="img/repimg/default/png1.png" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Commentaires</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+</section>
