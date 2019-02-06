@@ -1,21 +1,42 @@
 <section class="container">
 
-
   <div class="d-flex justify-content-end">
 
     <div>
       <?php 
       if(isset($_SESSION['id']) && $_SESSION['level']==1){
         echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>  Editer</a>
+        <a type='button' class='btn btn-primary' data-toggle='modal' data-target='#Modal'>
+        Launch demo modal
+      </a>
   <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'> Supprimer</a>";
   
       }elseif(isset($_SESSION['id']) && $_SESSION['id']==$_GET['auteur']){
-        echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>  Editer</a>
-  <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'> Supprimer</a>";
+        echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>Editer</a>
+        <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>Supprimer</a>";
       }
   
       ?>
-
+<!-- Modal -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">X</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Voulez-vous vraiment supprimer cet article ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <a type="button" class="btn btn-primary" href="index.php?action=delete&id=<?php echo $_GET['id'] ?>" >Confirmer</a>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
   </section>
