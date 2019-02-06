@@ -46,7 +46,7 @@
               <?php echo (utf8_encode($post['title'])) ?>
             </h2>
             <h6 class="text-right">Par 
-              <?php echo''.$post['firstname']?>
+              <?php echo''.$post['firstname'].', Publié le : '. date("d-m-Y",strtotime($post['updated_date']));?>
             </h6>
 
           </div>
@@ -56,7 +56,7 @@
         <div class="col-md-6 justify-content-center">
           <img src='img/repimg/<?php echo($post['file'])?>' class="img-fluid rounded float-right" alt="...">
           
-          <h5 class="text-right">Catégorie : <?php echo utf8_encode($post['name']) .'. '. date("d-m-Y",strtotime($post['updated_date']));?></h5>
+          <h5 class="text-right">Catégorie : <?php echo utf8_encode($post['name']);?></h5>
      
         </div>
     </div>
