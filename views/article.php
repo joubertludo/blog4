@@ -41,6 +41,6 @@
           <h5 class="text-right">Catégorie : <?php echo utf8_encode($post['name']) .'. '. date("d-m-Y",strtotime($post['updated_date']));?></h5>
      
         </div>
-      
+      <p>Bonjour camarade syndiqué</p>
     </div>
   </section>
