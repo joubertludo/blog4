@@ -66,10 +66,17 @@ if(isset($_POST['fname']) && isset($_POST['mdp'])){
 
 
 if(isset($_POST['formtitre']) && isset($_POST['formcontent'])){
+	var_dump ($_FILES['uploadfile']);
 	$title=$_POST['formtitre'];
 	$content=$_POST['formcontent'];
+	
+	if ($file=$_FILES['uploadfile']['name']=='') {
+	$file='default/image.jpg';
+	$create=new_post2($bdd,$title,$content,$file);
+	}else{
 	$file=$_FILES['uploadfile'];
 	$create=new_post($bdd,$title,$content,$file);
+	}
 }
 
 if(isset($_POST['formtitremodif']) && isset($_POST['formcontentmodif'])){
@@ -82,8 +89,10 @@ if ($_FILES['uploadfile']['name']==''){
 	$modif=modif_post2($bdd,$title,$content,$file,$id);
 }else{
 	$file=$_FILES['uploadfile'];
-	unlink('img/repimg/'.$_POST['oldfile']);
 	$modif=modif_post($bdd,$title,$content,$file,$id);
+	if ($file!='default/image.jpg') {
+		unlink('img/repimg/'.$_POST['oldfile']);
+	}
 }
 }
 

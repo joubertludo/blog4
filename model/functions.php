@@ -48,6 +48,10 @@ function new_post($bdd,$title,$content,$file){
     $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`,`id_aut`,`id_cat`) VALUES (?,?,?,?,?)');
     $reponse->execute(array(utf8_decode($title),utf8_decode($content),$new_name.'.'.$extension,$_POST['nameaut'],$_POST['namecat']));
 }
+function new_post2($bdd,$title,$content,$file){
+    $reponse=$bdd->prepare('INSERT INTO `posts` (`title`, `content`,`file`,`id_aut`,`id_cat`) VALUES (?,?,?,?,?)');
+    $reponse->execute(array(utf8_decode($title),utf8_decode($content),$file,$_POST['nameaut'],$_POST['namecat']));
+}
 function modif_post($bdd,$title,$content,$file,$id){
     $new_name=md5(basename($file['name']. time()));
     $extension1=explode('.',$file['name']);
