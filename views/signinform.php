@@ -6,7 +6,7 @@
         <label for="validationCustom01" class=" text-white  "></label>
         <input name="fname" type="text" class="form-control shadow p-3 mb-5" id="validationCustom01" placeholder="Prénom" value="" required>
         <div class="valid-feedback">
-          Looks good!
+          Looks  good!
         </div>
       </div>
       <div class="col-md-6">
