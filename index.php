@@ -99,7 +99,7 @@ if ($_FILES['uploadfile']['name']==''){
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
 		case 'article':
-
+        // $all_comment=search_all_comment($bdd)
 		$post=one_post($bdd,$_GET["id"]);
 			require 'views/article.php';
 			break;

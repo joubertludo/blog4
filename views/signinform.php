@@ -14,7 +14,7 @@
         <input name="lname" type="text" class="form-control shadow p-3 mb-5" id="validationCustom02" placeholder="Nom" value="" required>
         <div class="valid-feedback">
           Looks good!
-        </div>
+         </div>
       </div>
       <div class="col-12 pb-5 ">
         <label  for="validationCustomUsername" class="text-white ">Email 
