@@ -119,5 +119,45 @@ function exist_authors($bdd,$email){
 //     $reponse->closeCursor();
 //     return $post;
 // }
+function order_post_date($bdd){
+$reponse = $bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file,P.id_aut from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id ORDER BY `P`.`updated_date` DESC');
+    $reponse->execute();
+    $list_post = array();
+    while ($post = $reponse->fetch()) {
+     
+        $list_post[] = $post;
+    }
+    $reponse->closeCursor();
+    return $list_post;
+
+
+}
+function order_post_author($bdd){
+$reponse = $bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file,P.id_aut from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id ORDER BY `A`.`firstname` ASC');
+    $reponse->execute();
+    $list_post = array();
+    while ($post = $reponse->fetch()) {
+     
+        $list_post[] = $post;
+    }
+    $reponse->closeCursor();
+    return $list_post;
+
+
+}
+function order_post_categorie($bdd){
+$reponse = $bdd->prepare('SELECT P.id,P.title,A.firstname,P.updated_date,P.content,P.file,P.id_aut, P.id_cat from posts as P INNER JOIN authors as A ON P.id_aut=A.id INNER JOIN categories as C ON P.id_cat=C.id ORDER BY `P`.`id_cat` ASC');
+    $reponse->execute();
+    $list_post = array();
+    while ($post = $reponse->fetch()) {
+     
+        $list_post[] = $post;
+    }
+    $reponse->closeCursor();
+    return $list_post;
+
+
+}
+
 ?>
 
