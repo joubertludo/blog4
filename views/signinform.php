@@ -1,6 +1,12 @@
+
+<?php
+if (isset($_SESSION['id'])) {
+
+?>
 <div class="container pt-5 mb-5 bg-light">
+<?php echo $message; ?>
   <h3 class="text-center">S'inscrire</h3>
-  <form onsubmit="return validateForm()" method="post" action="index.php" class="needs-validation" novalidate>
+  <form onsubmit="return validateForm()" method="post" action="index.php?action=newuser" class="needs-validation" novalidate>
     <div class="form-row">
       <div class="col-md-6">
         <label for="validationCustom01" class=" text-white  "></label>
@@ -63,3 +69,7 @@
       </div>
     </div>
   </form>
+  <?php
+
+}
+?>

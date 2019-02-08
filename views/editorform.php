@@ -5,7 +5,7 @@ if (isset($_SESSION{'id'})) {
 ?>
 <div class="container pb-5 p-3 mb-5 bg-light rounded">
   <h2 class="text-center pt-5">Editer votre article</h2>
-  <form method="post" action="index.php" enctype="multipart/form-data">
+  <form method="post" action="index.php?action=updatepost" enctype="multipart/form-data">
     <div class="form-group">
       <input name="id" type="hidden" value="<?php echo($_GET['id']) ?>">
       <input name="oldfile" type="hidden" value="<?php echo($edit['file']) ?>">

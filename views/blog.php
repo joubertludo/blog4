@@ -1,4 +1,4 @@
-<section class="bg-white" >
+<!-- <section class="bg-white" >
 <div class="container pt-4">
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -10,8 +10,11 @@
     <a class="dropdown-item" href="#">Dernier article</a>
   </div>
 </div>
-</div>
+</div> -->
 <section class="container pt-5 pb-5">
+<div class="text-danger pb-3">
+ <?php echo $message; ?>
+</div>
 <?php foreach ($all_posts_order as $datas) {
   $CURRENT_PAGE = ($datas['id']);
   $CURRENT_AUTHOR = ($datas['id_aut']);

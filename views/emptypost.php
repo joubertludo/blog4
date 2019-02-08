@@ -1,12 +1,8 @@
 
-<?php
-if (isset($_SESSION['id'])) {
-
-?>
 
 <div class="container pb-5 mb-5 bg-light rounded">
   <h2 class="text-center pt-3">Editer votre article</h2>
-  <form class="" onsubmit="return validateEmptyPost()" method="post" action="index.php" enctype="multipart/form-data">
+  <form class="" onsubmit="return validateEmptyPost()" method="post" action="index.php?action=insertpost" enctype="multipart/form-data">
     <div class="form-group">
       <label for="sfrvsvdv">Titre</label>
       <input name="formtitre" type="text" class="form-control" id="title" placeholder="Exemple" value="">
@@ -59,7 +55,3 @@ if (isset($_SESSION['id'])) {
 
   </form>
 </div>
-<?php
-
-        }
-?>

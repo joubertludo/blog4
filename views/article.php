@@ -10,7 +10,7 @@
   
       }elseif(isset($_SESSION['id']) && $_SESSION['id']==$_GET['auteur']){
         echo" <a href='editpost-".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>Editer</a>
-        <a href='index.php?action=delete&id=".$_GET['id']."' type='button' class='btn btn-light mb-2 btn-sm'>Supprimer</a>";
+        <a data-toggle='modal' href='#Modal' type='button' class='btn btn-light mb-2 btn-sm'> Supprimer</a>";;
       }
   
       ?>
@@ -29,7 +29,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        <a type="button" class="btn btn-primary" href="index.php?action=delete&id=<?php echo $_GET['id'] ?>" >Confirmer</a>
+        <a type="button" class="btn btn-primary" href="index.php?action=delete&id=<?php echo $_GET['id']?>&auteur=<?php echo $_GET['auteur'] ?>" >Confirmer</a>
       </div>
     </div>
   </div>
@@ -61,12 +61,3 @@
         </div>
     </div>
   </section>
-  <section class="container bg-light mb-3 rounded">
-<div class="media pt-3 pb-3 ">
-  <img style="max-height: 80px;" src="img/repimg/default/png1.png" class="mr-3" alt="...">
-  <div class="media-body">
-    <h5 class="mt-0">Commentaires</h5>
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-  </div>
-</div>
-</section>

@@ -15,11 +15,11 @@
           echo"Bonjour, ".$_SESSION['firstname'];
 
         }else {
-          echo" <form name='connectForm' onsubmit='validateForm()' method='POST' action='index.php'  class='form-inline'>
+          echo" <form name='connectForm' onsubmit='validateForm()' method='POST' action='index.php?action=connect'  class='form-inline'>
           <div class='form-row'>
             <div class='form-group col-md-6'>
               <label for='userName'>Nom d'utilisateur</label>
-              <input value='az@de.fr' name='usr' type='text' class='form-control' id='inputEmail4' placeholder='Georges'>
+              <input value='az@de.fr' name='usr' type='text' class='form-control' id='inputEmail4' placeholder=''>
             </div>
             <div class='form-group col-md-6'>
               <label for='userPass'>Mot de passe</label>

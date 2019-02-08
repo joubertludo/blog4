@@ -6,146 +6,64 @@ require('inc/head.php');
 require('inc/nav.php');
 require('inc/header.php');
 
-
-if (isset($_GET['action']) && $_GET['action']=='delete') {
-    $delete=delete_post($bdd,$_GET['id']);
-    echo("
-   <script>
-   alert('Vous avez supprimé ce post')
-   </script>");
-}
-if (isset($_POST['usr']) && isset($_POST['mdp']) )
-
-{
- $post=connect_user($bdd,$_POST['usr'], $_POST['mdp']);
-	if ($post){echo'ok';
-$_SESSION['id']=$post['id'];
-$_SESSION['usr']=$post['email'];
-$_SESSION['firstname']=$post['firstname'];
-$_SESSION['lastname']=$post['lastname'];
-$_SESSION['level']=$post['level'];
-header('Location: index.php');
-
-}
-
-	else{echo'mot de passe et identifiant incorrect';}
-
-
-
-	// echo $_POST['usr'].' '.$_POST['mdp'];
-}
-// echo" merci de remplir les champs indiqués";
 if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
-	unset($_SESSION['id']);
-	unset($_SESSION['usr']);
-	unset($_SESSION['firstname']);
-	unset($_SESSION['lastname']);
-	session_destroy();
-	header('Location: index.php');
-
-}
-if(isset($_POST['fname']) && isset($_POST['mdp'])){
-	$firstname=$_POST['fname'];
-	$password=$_POST['mdp'];
-	$lastname=$_POST['lname'];
-	$email=$_POST['usremail'];
-	$existauthors=exist_authors($bdd,$email);
-
-
-	if($existauthors['count(*)']=='0'){
-	$createnewuser=new_authors($bdd,$firstname,$lastname,$email,$password);
-	echo "<p class='text-success'>Votre compte utilisateur a été créé, vous pouvez à présent vous connecter !</p>";
-
-	}else{
-	$_SESSION['unvalidemail']='true';
-	header('location: newuser');
-	
+	require 'inc/controler_disconnect.php';
 }
 
-}
-
-
-if(isset($_POST['formtitre']) && isset($_POST['formcontent'])){
-	var_dump ($_FILES['uploadfile']);
-	$title=$_POST['formtitre'];
-	$content=$_POST['formcontent'];
-	
-	if ($file=$_FILES['uploadfile']['name']=='') {
-	$file='default/image.jpg';
-	$create=new_post2($bdd,$title,$content,$file);
-	}else{
-	$file=$_FILES['uploadfile'];
-	$create=new_post($bdd,$title,$content,$file);
-	}
-}
-
-if(isset($_POST['formtitremodif']) && isset($_POST['formcontentmodif'])){
-$title=$_POST['formtitremodif'];
-$content=$_POST['formcontentmodif'];
-$id=$_POST['id'];
-
-if ($_FILES['uploadfile']['name']==''){
-	$file=$_POST['oldfile'];
-	$modif=modif_post2($bdd,$title,$content,$file,$id);
-}else{
-	$file=$_FILES['uploadfile'];
-	$modif=modif_post($bdd,$title,$content,$file,$id);
-	if ($file!='default/image.jpg') {
-		unlink('img/repimg/'.$_POST['oldfile']);
-	}
-}
-}
 
 if(isset($_GET['page'])){
 	switch ($_GET['page']) {
 		case 'article':
-        // $all_comment=search_all_comment($bdd)
-		$post=one_post($bdd,$_GET["id"]);
-			require 'views/article.php';
-			break;
+			require 'inc/controler_article.php';
+        	break;
 		case 'editorform':
-			$list_categories=list_categories($bdd);
-			$list_authors=list_authors($bdd);
-			$id=$_GET["id"];
-			$edit=edit_post($bdd,$id);
-			require 'views/editorform.php';
+			require 'inc/controler_editorform.php';
 			break;
 		case 'userform':
-			require 'views/userform.php';
+			require 'inc/controler_userform.php';
 			break;
 		case 'emptypost':
-			$list_categories=list_categories($bdd);
-			$list_authors=list_authors($bdd);
-			require 'views/emptypost.php';
+			require 'inc/controler_emptypost.php';
 			break;
 		case'signinform':
-			$new_aut=new_authors($bdd,$firstname,$lastname,$email,$password);
-			require'views/signinform.php';
+			require 'inc/controler_forminsertuser.php';
 			break;
 		case'admin':
-			$search_all_categories=search_all_categories($bdd);
-			require 'views/admin.php';
+			require 'inc/controler_admin.php';
 			break;
-
-
 		default:
-			$all_posts=search_all_posts($bdd);
-			// var_dump($all_posts);
-			require 'views/blog.php';
+			require 'inc/controler_blog.php';			
 			break;
 	}
 	
 }
-else{
-			$all_posts=search_all_posts($bdd);
-			// var_dump($all_posts);
-			require 'views/blog.php';
 
-		
+else{ if (isset($_GET['action']))
+	{
+	if ($_GET['action']=='delete') {
+	
+		require 'inc/controler_delete_post.php';   
 	}
-
-
-
+	
+	if ($_GET['action']=='connect'){
+		require 'inc/controler_connect.php';
+	}
+	
+	if($_GET['action']=='newuser'){
+		require 'inc/controler_insertuser.php';
+	}
+	
+	if($_GET['action']=='insertpost'){
+		require 'inc/controler_insertpost.php';
+	}
+	
+	if($_GET['action']=='updatepost'){
+		require 'inc/controler_updatepost.php';
+	}
+	}else{
+	require 'inc/controler_blog.php';	
+	$message = '';}
+	}
 
 require('inc/footer.php');
 ?>
