@@ -14,9 +14,9 @@ if (isset($_SESSION['id'])){
             $create=new_post($bdd,$title,$content,$file);
             require 'inc/controler_blog.php';	
             }
-    }
+    }else{
     $message ='veuillez remplir les champs.';
-    require 'inc/controler_emptypost.php';
+    require 'inc/controler_emptypost.php';}
 	
 
 }else{
