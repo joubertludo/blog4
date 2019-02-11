@@ -13,5 +13,7 @@ if ($_FILES['uploadfile']['name']==''){
 	if ($file!='default/image.jpg') {
 		unlink('img/repimg/'.$_POST['oldfile']);
 	}
-}}
+}
+require 'controler_blog.php';
+}
 ?>
