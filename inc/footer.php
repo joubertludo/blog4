@@ -1,16 +1,16 @@
 
 <footer style="background-color:  #e8e2db" >
-		<div id="modal" class="container align-item-center">
-		<div class="row">	
+			
   <div class="card-footer text-muted text-center  ">
  <a class="text-dark" href="index.php"> Accueil</a>
    <p class="text-dark">© <?php print date('d/m/y')?> - Tous droits réservés.</p>
-   
+  		 <div id="modal" class="container">
+				<div class="row">
 	
-			
-				<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#basicExampleModal">
+			<div class=" mx-auto">
+				<a data-toggle="modal" data-target="#basicExampleModal">
 					Mentions légales
-				</button>
+				</a>
 
 				<!-- Modal -->
 				<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -132,7 +132,7 @@ Les photos figurant dans le site sont protégées par la loi sur la propriété 
 </div>
 </div>
 </div>
-
+</div>
 </footer>
 <?php 
 require('inc/modal.php')?>
