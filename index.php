@@ -7,7 +7,7 @@ require('inc/nav.php');
 require('inc/header.php');
 
 if(isset($_GET['stopsession']) && $_GET['stopsession']=='yes'){
-	require 'inc/controler_disconnect.php';
+	 require 'inc/controler_disconnect.php';
 }
 
 
